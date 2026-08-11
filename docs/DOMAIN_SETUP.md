@@ -54,5 +54,4 @@ Both were checked by WHOIS on 2026-08-11 and were unregistered. Prices will vary
 ## GitHub Pages notes
 
 - The GitHub Pages source in this repo is the GitHub Actions workflow (`.github/workflows/deploy.yml`).
-- The `VITE_BASE_URL` is set to `/` for the custom-domain deployment.
-- If you ever view the site at `https://aeventures.github.io/reflux-healed/`, assets may 404 because the base URL is set for the custom domain. To support both, change `base` in `vite.config.ts` to use the `VITE_BASE_URL` environment variable and set it differently for the GitHub preview URL.
+- The site uses a relative base URL (`./`) so it works both at `https://aeventures.github.io/reflux-healed/` and at the custom domain `https://reflux-healed.org/`.
