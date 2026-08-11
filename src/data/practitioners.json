@@ -1,0 +1,27 @@
+[
+  {
+    "id": "dr-david-kulla-synergy-wellness",
+    "addedAt": "2026-08-11T16:20:00Z",
+    "name": "Dr. David Kulla",
+    "credentials": "D.C.",
+    "practiceName": "Synergy Wellness Chiropractic & Physical Therapy NYC",
+    "location": "237 First Ave, 5th Floor, New York, NY 10003",
+    "focus": [
+      "hiatal hernia",
+      "acid reflux",
+      "chiropractic",
+      "physical therapy",
+      "Reflux Shield"
+    ],
+    "contact": {
+      "phone": "(212) 533-4900",
+      "website": "https://synergywellnessny.com/"
+    },
+    "about": "Dr. David Kulla is a Doctor of Chiropractic and the founder of Synergy Wellness in New York City. The practice publicly lists hiatal hernia and acid reflux as a core focus and notes that Dr. Kulla is known for treating reflux related to hiatal hernia using a patented device called the Reflux Shield.",
+    "verification": {
+      "type": "public-specialty",
+      "note": "Listed as a practitioner with a documented, publicly stated focus on hiatal hernia and acid reflux. This is not a medical endorsement and does not replace your own due diligence."
+    },
+    "sourceUrl": "https://synergywellnessny.com/about-us/"
+  }
+]

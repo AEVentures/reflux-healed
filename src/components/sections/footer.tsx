@@ -26,6 +26,12 @@ export function Footer() {
               Stories
             </a>
             <a
+              href="#practitioners"
+              className="text-dusk-300 hover:text-white"
+            >
+              Practitioners
+            </a>
+            <a
               href="#share"
               className="text-dusk-300 hover:text-white"
             >

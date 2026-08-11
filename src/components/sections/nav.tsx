@@ -3,6 +3,7 @@ import { Menu, X, Heart } from 'lucide-react';
 
 const links = [
   { label: 'Stories', href: '#stories' },
+  { label: 'Practitioners', href: '#practitioners' },
   { label: 'Share', href: '#share' },
   { label: 'About', href: '#about' },
   { label: 'Guidelines', href: '#guidelines' },

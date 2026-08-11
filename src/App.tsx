@@ -2,6 +2,7 @@ import { Nav } from '@/components/sections/nav';
 import { Hero } from '@/components/sections/hero';
 import { StoryGrid } from '@/components/sections/story-grid';
 import { ShareForm } from '@/components/sections/share-form';
+import { Practitioners } from '@/components/sections/practitioners';
 import { Education } from '@/components/sections/education';
 import { Footer } from '@/components/sections/footer';
 import { loadStories } from '@/lib/stories';
@@ -18,6 +19,7 @@ export function App() {
       <main>
         <Hero />
         <StoryGrid stories={stories} />
+        <Practitioners />
         <Education />
         <ShareForm />
       </main>
