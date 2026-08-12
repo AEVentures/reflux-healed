@@ -5,53 +5,47 @@
 - Primary: `reflux-healed.org`
 - Redirect: `refluxhealed.org` → `reflux-healed.org`
 
-Both were checked by WHOIS on 2026-08-11 and were unregistered. Prices will vary by registrar and term length.
+Both were registered through Cloudflare on 2026-08-11.
 
-## Option A: Cloudflare Registrar + DNS (recommended if you already use Cloudflare)
+## Cloudflare setup (what was used for this site)
 
 1. Log in to [Cloudflare Dashboard](https://dash.cloudflare.com/).
-2. Register both domains:
-   - Search for `reflux-healed.org` and add to cart.
-   - Search for `refluxhealed.org` and add to cart.
-   - Complete checkout.
-3. Wait for registration to complete (usually minutes).
-4. For `reflux-healed.org`:
+2. Register both domains (or transfer them in).
+3. For `reflux-healed.org`:
    - Go to **DNS** → **Records**.
-   - If Cloudflare is not proxying the records (grey cloud), add:
-     - Type `A`, Name `@`, IPv4 address `185.199.108.153`
-     - Type `A`, Name `@`, IPv4 address `185.199.109.153`
-     - Type `A`, Name `@`, IPv4 address `185.199.110.153`
-     - Type `A`, Name `@`, IPv4 address `185.199.111.153`
-     - Type `CNAME`, Name `www`, Target `ae-ventures.github.io` (or your org page hostname)
-   - If Cloudflare **is** proxying (orange cloud), use a single `CNAME` record for `@` pointing to `ae-ventures.github.io` if your DNS provider supports CNAME flattening, or use the A records above with proxy disabled for the apex.
-5. For `refluxhealed.org` (redirect to primary):
-   - Go to **Rules** → **Redirect Rules**.
-   - Create a rule:
-     - When incoming requests match: `http.request.full_uri ne "https://reflux-healed.org"` (or any hostname other than the primary)
-     - Then: `Dynamic` redirect to `concat("https://reflux-healed.org", http.request.uri.path)`
-   - Alternatively, use **Bulk Redirects** with both `refluxhealed.org/*` and `www.refluxhealed.org/*` pointing to `https://reflux-healed.org/$1`.
-6. In the GitHub repo settings, ensure GitHub Pages is enabled and using the `main` branch / GitHub Actions source.
-7. The `public/CNAME` file in this repo is already set to `reflux-healed.org`, so GitHub Pages will accept the custom domain.
-8. Wait for DNS to propagate and for the SSL certificate to be issued (GitHub Pages will do this automatically once the A records resolve).
+   - Add these A records for the apex (`@`), **proxied** (orange cloud):
+     - `185.199.108.153`
+     - `185.199.109.153`
+     - `185.199.110.153`
+     - `185.199.111.153`
+   - Add a `CNAME` for `www` pointing to `aeventures.github.io`, **proxied** (orange cloud).
+   - In **SSL/TLS** → **Overview**, set the mode to **Full (strict)** once GitHub Pages has issued a certificate for `reflux-healed.org`.
+   - In **SSL/TLS** → **Edge Certificates**, enable **Always Use HTTPS**.
+4. For `refluxhealed.org` (redirect to primary):
+   - Add a dummy A record for `@` pointing to `192.0.2.1`, **proxied**.
+   - Add a dummy A record for `www` pointing to `192.0.2.1`, **proxied**.
+   - Go to **Rules** → **Page Rules**.
+   - Create a forwarding rule:
+     - **URL matches:** `*refluxhealed.org/*`
+     - **Then:** Forwarding URL → `https://reflux-healed.org/$2` with **301** status.
+   - Enable **Always Use HTTPS** in **SSL/TLS** → **Edge Certificates**.
+5. In the GitHub repo settings, ensure GitHub Pages is enabled and using the GitHub Actions workflow source.
+6. The `public/CNAME` file in this repo is already set to `reflux-healed.org`, so GitHub Pages will accept the custom domain.
+7. It can take several minutes to an hour for GitHub Pages to issue the TLS certificate. Until then, Cloudflare can serve the site using **Full** (not strict) SSL with the GitHub wildcard certificate.
 
-## Option B: Namecheap
+## Why this works
 
-1. Register both domains at [Namecheap](https://www.namecheap.com/).
-2. In the `reflux-healed.org` dashboard:
-   - Go to **Advanced DNS**.
-   - Add an `ALIAS` or `A` record for `@` pointing to the GitHub Pages IPs above.
-   - Add a `CNAME` record for `www` pointing to your GitHub Pages hostname.
-3. In the `refluxhealed.org` dashboard:
-   - Use Namecheap’s **URL Redirect** feature to redirect all traffic to `https://reflux-healed.org`.
-4. Enable GitHub Pages custom domain in the repo settings if it is not already set.
+- GitHub Pages serves the site at the custom domain once the A records and `CNAME` file match.
+- Cloudflare proxies the apex domain so `https://reflux-healed.org` works with a valid certificate even while GitHub Pages is still provisioning its own certificate.
+- The Page Rule on `refluxhealed.org` runs at the Cloudflare edge and 301-redirects every path to the hyphenated domain.
 
 ## After DNS is live
 
 - Visit `https://reflux-healed.org` and confirm the site loads.
 - Visit `https://refluxhealed.org` and confirm it redirects to `https://reflux-healed.org`.
-- Check for SSL: both should show a valid certificate.
+- Check that `https://www.reflux-healed.org` redirects to `https://reflux-healed.org`.
 
 ## GitHub Pages notes
 
 - The GitHub Pages source in this repo is the GitHub Actions workflow (`.github/workflows/deploy.yml`).
-- The site uses a relative base URL (`./`) so it works both at `https://aeventures.github.io/reflux-healed/` and at the custom domain `https://reflux-healed.org/`.
+- The site uses a relative base URL (`./`) so it works at any path.
