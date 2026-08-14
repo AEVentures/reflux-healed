@@ -4,6 +4,8 @@ import { StoryGrid } from '@/components/sections/story-grid';
 import { ShareForm } from '@/components/sections/share-form';
 import { Practitioners } from '@/components/sections/practitioners';
 import { Education } from '@/components/sections/education';
+import { Support } from '@/components/sections/support';
+import { HelpfulTools } from '@/components/sections/helpful-tools';
 import { Footer } from '@/components/sections/footer';
 import { loadStories } from '@/lib/stories';
 
@@ -22,6 +24,8 @@ export function App() {
         <Practitioners />
         <Education />
         <ShareForm />
+        <Support />
+        <HelpfulTools />
       </main>
       <Footer />
     </div>

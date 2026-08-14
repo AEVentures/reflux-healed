@@ -6,7 +6,8 @@ const links = [
   { label: 'Practitioners', href: '#practitioners' },
   { label: 'Share', href: '#share' },
   { label: 'About', href: '#about' },
-  { label: 'Guidelines', href: '#guidelines' },
+  { label: 'Support', href: '#support' },
+  { label: 'Tools', href: '#tools' },
 ];
 
 export function Nav() {

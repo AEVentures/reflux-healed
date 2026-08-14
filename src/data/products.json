@@ -1,0 +1,38 @@
+[
+  {
+    "id": "medcline-reflux-relief-system",
+    "name": "MedCline Reflux Relief System",
+    "description": "An inclined sleep system with a body pillow designed to keep the upper body elevated and reduce nighttime reflux symptoms.",
+    "whyMentioned": "Community members often talk about sleeping at an incline to reduce nighttime breakthrough symptoms.",
+    "category": "Sleep support",
+    "priceRange": "~$250–$300",
+    "url": "https://www.amazon.com/MedCline-Reflux-Relief-Medical-Clinically/dp/B01CRB7BMO"
+  },
+  {
+    "id": "medcline-reflux-relief-medium",
+    "name": "MedCline Reflux Relief System — Medium",
+    "description": "The same inclined reflux sleep system sized for people 5'5\" to 5'11\".",
+    "whyMentioned": "A more targeted size option for people who fall in the medium-height range.",
+    "category": "Sleep support",
+    "priceRange": "~$250–$300",
+    "url": "https://www.amazon.com/dp/B01N4TQOVJ"
+  },
+  {
+    "id": "acid-watcher-diet",
+    "name": "The Acid Watcher Diet",
+    "description": "A 28-day dietary program by Dr. Jonathan Aviv that focuses on identifying and reducing acidic foods.",
+    "whyMentioned": "Frequently referenced by people trying to understand how food acidity affects their symptoms.",
+    "category": "Books",
+    "priceRange": "~$10–$15",
+    "url": "https://www.amazon.com/Acid-Watcher-Diet-Prevention-Programme-ebook/dp/B01LYIK7QH"
+  },
+  {
+    "id": "santevia-alkaline-pitcher",
+    "name": "Santevia MINA Alkaline Water Pitcher",
+    "description": "A water-filter pitcher that adds minerals and raises water pH.",
+    "whyMentioned": "Some people with reflux find that alkaline water feels gentler on the throat than tap water.",
+    "category": "Hydration",
+    "priceRange": "~$40–$60",
+    "url": "https://www.amazon.com/Santevia-Water-Systems-Alkaline-Pitcher/dp/B07KCPV8D7"
+  }
+]

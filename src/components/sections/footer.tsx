@@ -44,10 +44,16 @@ export function Footer() {
               About
             </a>
             <a
-              href="#guidelines"
+              href="#support"
               className="text-dusk-300 hover:text-white"
             >
-              Guidelines
+              Support
+            </a>
+            <a
+              href="#tools"
+              className="text-dusk-300 hover:text-white"
+            >
+              Tools
             </a>
           </div>
 
